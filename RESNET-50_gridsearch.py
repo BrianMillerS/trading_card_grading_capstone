@@ -6,10 +6,17 @@ import datetime
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications.resnet50 import ResNet50
-from tensorflow.keras.layers import Dense, Flatten, MaxPooling2D, Dropout
+from tensorflow.keras.layers import Dense, Flatten, Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.metrics import Precision, Recall
+from tensorflow.keras import mixed_precision
 
+# Enable mixed precision for performance improvement
+mixed_precision.set_global_policy('mixed_float16')
+
+# Define the distribution strategy
+strategy = tf.distribute.MirroredStrategy()
+print("Number of GPUs: {}".format(strategy.num_replicas_in_sync))
 
 # Paths for data
 base_path = "/home/data/data_for_model_1"
@@ -100,11 +107,12 @@ for droprate in droprates:
     x = Dropout(droprate)(x)
     predictions = Dense(10, activation='softmax')(x)
 
-    # Create final model
-    model = tf.keras.Model(inputs=resnet50_model.input, outputs=predictions)
-
-    # Compile model
-    model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
+    with strategy.scope():
+        # Create final model
+        model = tf.keras.Model(inputs=resnet50_model.input, outputs=predictions)
+    
+        # Compile model
+        model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
 
     # Train model for the first round (freezing ResNet50 layers)
     model.fit(train_generator, epochs=n_epochs, validation_data=test_generator, callbacks=[csv_logger])
@@ -152,7 +160,7 @@ for droprate in droprates:
     mean_diff = np.mean(absolute_diffs)
     median_diff = np.median(absolute_diffs)
     
-    print("Model Summary: { lr = {} ,droprate = {} }".format(learning_rate_dense_layers, droprate))
+    print("Model Summary: [ lr = {} ,droprate = {} ]".format(learning_rate_dense_layers, droprate))
     print("Train Accuracy:  {}".format(final_train_accuracy))
     print("Train Precision: {}".format(final_train_precision))
     print("Train Recall:    {}".format(final_train_recall))
