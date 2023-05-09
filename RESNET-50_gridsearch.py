@@ -52,13 +52,13 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
     train_path,
     target_size=(400, 600),
-    batch_size=32,
+    batch_size=16,
     class_mode='categorical')
 
 test_generator = test_datagen.flow_from_directory(
     test_path,
     target_size=(400, 600),
-    batch_size=32,
+    batch_size=16,
     class_mode='categorical')
 
 # Load pre-trained RESNET-50 model
@@ -97,6 +97,7 @@ class CustomCSVLogger(tf.keras.callbacks.CSVLogger):
 n_epochs = 10
 learning_rate_dense_layers = 0.0001
 droprates = [0, 0.1, 0.15, 0.20, .25]
+# droprates = [0, 0.1]
 
 for droprate in droprates:
     
