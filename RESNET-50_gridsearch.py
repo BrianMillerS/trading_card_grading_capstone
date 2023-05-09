@@ -12,14 +12,15 @@ from tensorflow.keras.metrics import Precision, Recall
 from tensorflow.keras import mixed_precision
 
 # Enable mixed precision for performance improvement
-mixed_precision.set_global_policy('mixed_float16')
+# mixed_precision.set_global_policy('mixed_float16')
 
 # Define the distribution strategy
-strategy = tf.distribute.MirroredStrategy()
-print("Number of GPUs: {}".format(strategy.num_replicas_in_sync))
+# strategy = tf.distribute.MirroredStrategy()
+# print("Number of GPUs: {}".format(strategy.num_replicas_in_sync))
 
 # Paths for data
-base_path = "/home/data/data_for_model_1"
+# base_path = "/home/data/data_for_model_1"
+base_path = "/Users/brianmiller/Desktop/trading_card_data/test_run_data"
 train_path = os.path.join(base_path, 'train')
 test_path = os.path.join(base_path, 'test')
 
@@ -68,11 +69,9 @@ for layer in resnet50_model.layers[:-20]:
     layer.trainable = False
 
 # Add custom dense layer
-x = resnet50_model.output
-x = Flatten()(x)
-x = Dense(1024, activation='relu')(x)
-x = Dense(512, activation='relu')(x)
-x = Dense(128, activation='relu')(x)
+x_base = resnet50_model.output
+x_base = Flatten()(x_base)
+x_base = Dense(1024, activation='relu')(x_base)
 
 
 class CustomCSVLogger(tf.keras.callbacks.CSVLogger):
@@ -103,16 +102,20 @@ for droprate in droprates:
     
     csv_logger = CustomCSVLogger(os.path.join(log_dir, 'log.csv'), learning_rate_dense_layers, droprate, append=True)
     
-    # Add dropout layer with the current droprate
+    # Add dropout layer with the current droprate after the 1024-node layer
+    x = Dropout(droprate)(x_base)  # get the original model to make changes to
+    x = Dense(512, activation='relu')(x)
+
+    # Add dropout layer with the current droprate after the 512-node layer
     x = Dropout(droprate)(x)
+    x = Dense(128, activation='relu')(x)
     predictions = Dense(10, activation='softmax')(x)
 
-    with strategy.scope():
-        # Create final model
-        model = tf.keras.Model(inputs=resnet50_model.input, outputs=predictions)
-    
-        # Compile model
-        model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
+    # Create final model
+    model = tf.keras.Model(inputs=resnet50_model.input, outputs=predictions)
+
+    # Compile model
+    model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
 
     # Train model for the first round (freezing ResNet50 layers)
     model.fit(train_generator, epochs=n_epochs, validation_data=test_generator, callbacks=[csv_logger])
