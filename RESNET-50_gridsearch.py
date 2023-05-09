@@ -19,8 +19,8 @@ from tensorflow.keras import mixed_precision
 # print("Number of GPUs: {}".format(strategy.num_replicas_in_sync))
 
 # Paths for data
-# base_path = "/home/data/data_for_model_1"
-base_path = "/Users/brianmiller/Desktop/trading_card_data/test_run_data"
+base_path = "/home/data/data_for_model_1"
+# base_path = "/Users/brianmiller/Desktop/trading_card_data/test_run_data"
 train_path = os.path.join(base_path, 'train')
 test_path = os.path.join(base_path, 'test')
 
@@ -96,7 +96,7 @@ class CustomCSVLogger(tf.keras.callbacks.CSVLogger):
 ### PARAMS ####
 n_epochs = 10
 learning_rate_dense_layers = 0.0001
-droprates = [0, 0.1, 0.15, 0.20]
+droprates = [0, 0.1, 0.15, 0.20, .25]
 
 for droprate in droprates:
     
