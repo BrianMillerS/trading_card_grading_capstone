@@ -18,9 +18,15 @@ from tensorflow.keras import mixed_precision
 # strategy = tf.distribute.MirroredStrategy()
 # print("Number of GPUs: {}".format(strategy.num_replicas_in_sync))
 
-# Paths for data
+#### USER INPUTS ####
 base_path = "/home/data/data_for_model_1"
 # base_path = "/Users/brianmiller/Desktop/trading_card_data/test_run_data"
+n_epochs = 10
+learning_rate_dense_layers = 0.0001
+droprate = 0.20
+#####################
+
+# define the paths for the files
 train_path = os.path.join(base_path, 'train')
 test_path = os.path.join(base_path, 'test')
 
@@ -61,21 +67,8 @@ test_generator = test_datagen.flow_from_directory(
     batch_size=16,
     class_mode='categorical')
 
-# Load pre-trained RESNET-50 model
-resnet50_model = ResNet50(weights='imagenet', include_top=False, input_shape=(400, 600, 3))
-
-# Freeze all layers except the last convolutional block
-for layer in resnet50_model.layers[:-20]:
-    layer.trainable = False
-
-# Add custom dense layer
-x_base = resnet50_model.output
-x_base = Flatten()(x_base)
-x_base = Dense(1024, activation='relu')(x_base)
-
-
 class CustomCSVLogger(tf.keras.callbacks.CSVLogger):
-    def __init__(self, filename, learning_rate, dropout_rate, append=False, separator=',', newline='\n'):
+    def __init__(self, filename, learning_rate, dropout_rate, append=False, separator=','):
         super().__init__(filename, separator=separator, append=append)
         self.learning_rate = learning_rate
         self.dropout_rate = dropout_rate
@@ -93,83 +86,89 @@ class CustomCSVLogger(tf.keras.callbacks.CSVLogger):
         super().on_epoch_end(epoch, logs)
 
 
-### PARAMS ####
-n_epochs = 10
-learning_rate_dense_layers = 0.0001
-droprates = [0, 0.1, 0.15, 0.20, .25]
-# droprates = [0, 0.1]
+# define a log
+csv_logger = CustomCSVLogger(os.path.join(log_dir, 'log.csv'), learning_rate_dense_layers, droprate, append=True)
 
-for droprate in droprates:
+# Load pre-trained RESNET-50 model
+resnet50_model = ResNet50(weights='imagenet', include_top=False, input_shape=(400, 600, 3))
+
+# Freeze all layers except the last convolutional block
+for layer in resnet50_model.layers[:-20]:
+    layer.trainable = False
+
+# Add custom dense layer
+x = resnet50_model.output
+x = Flatten()(x)
+x = Dense(1024, activation='relu')(x)
+
+# Add dropout layer with the current droprate after the 1024-node layer
+x = Dropout(droprate)(x)  # get the original model to make changes to
+x = Dense(512, activation='relu')(x)
+
+# Add dropout layer with the current droprate after the 512-node layer
+x = Dropout(droprate)(x)
+x = Dense(128, activation='relu')(x)
+
+# Add a prediction layer
+predictions = Dense(10, activation='softmax')(x)
+
+# Create final model
+model = tf.keras.Model(inputs=resnet50_model.input, outputs=predictions)
+
+# Compile model
+model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
+
+# Train model for the first round (freezing ResNet50 layers)
+model.fit(train_generator, epochs=n_epochs, validation_data=test_generator, callbacks=[csv_logger])
+
+# Unfreeze ResNet50 for the second round
+for layer in resnet50_model.layers[:-50]:
+    layer.trainable = False
+
+# Recompile model with lower learning rate
+model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
+
+# Train model for the second round (unfreezing some ResNet50 layers)
+history = model.fit(train_generator, epochs=n_epochs, validation_data=test_generator, callbacks=[csv_logger])
+
+##  print final accuracy and precison metrics for each fully trained model (20 epochs total) ##
+history_clean_keys = {re.sub(r'_\d+', '', key): value for key, value in history.history.items()}
+
+# get accuracy metrics
+final_train_accuracy = history_clean_keys['accuracy'][-1]
+final_train_precision = history_clean_keys['precision'][-1]
+final_train_recall = history_clean_keys['recall'][-1]
+final_test_xval_accuracy = history_clean_keys['val_accuracy'][-1]
+final_test_xval_precision = history_clean_keys['val_precision'][-1]
+final_test_xval_recall = history_clean_keys['val_recall'][-1]
     
-    csv_logger = CustomCSVLogger(os.path.join(log_dir, 'log.csv'), learning_rate_dense_layers, droprate, append=True)
-    
-    # Add dropout layer with the current droprate after the 1024-node layer
-    x = Dropout(droprate)(x_base)  # get the original model to make changes to
-    x = Dense(512, activation='relu')(x)
+# get precision metrics
 
-    # Add dropout layer with the current droprate after the 512-node layer
-    x = Dropout(droprate)(x)
-    x = Dense(128, activation='relu')(x)
-    predictions = Dense(10, activation='softmax')(x)
+# Get a batch of test images and their true labels
+test_images, true_labels = next(test_generator)
 
-    # Create final model
-    model = tf.keras.Model(inputs=resnet50_model.input, outputs=predictions)
+# Make predictions for the test images
+predictions = model.predict(test_images)
 
-    # Compile model
-    model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
+# Get the class with the highest probability for each prediction
+predicted_labels = np.argmax(predictions, axis=1)
 
-    # Train model for the first round (freezing ResNet50 layers)
-    model.fit(train_generator, epochs=n_epochs, validation_data=test_generator, callbacks=[csv_logger])
+# Convert true_labels from one-hot encoded to class indices
+true_labels = np.argmax(true_labels, axis=1)
 
-    # Unfreeze ResNet50 for the second round
-    for layer in resnet50_model.layers[:-50]:
-        layer.trainable = False
+# Calculate the absolute differences between the predicted and true labels
+absolute_diffs = np.abs(predicted_labels - true_labels)
 
-    # Recompile model with lower learning rate
-    model.compile(optimizer=Adam(lr=learning_rate_dense_layers), loss='categorical_crossentropy', metrics=['accuracy', Precision(), Recall()])
+# Calculate the mean and median absolute differences
+mean_diff = np.mean(absolute_diffs)
+median_diff = np.median(absolute_diffs)
 
-    # Train model for the second round (unfreezing some ResNet50 layers)
-    history = model.fit(train_generator, epochs=n_epochs, validation_data=test_generator, callbacks=[csv_logger])
-    
-    ##  print final accuracy and precison metrics for each fully trained model (20 epochs total) ##
-    
-    history_clean_keys = {re.sub(r'_\d+', '', key): value for key, value in history.history.items()}
-
-    # get accuracy metrics
-    final_train_accuracy = history_clean_keys['accuracy'][-1]
-    final_train_precision = history_clean_keys['precision'][-1]
-    final_train_recall = history_clean_keys['recall'][-1]
-    final_test_xval_accuracy = history_clean_keys['val_accuracy'][-1]
-    final_test_xval_precision = history_clean_keys['val_precision'][-1]
-    final_test_xval_recall = history_clean_keys['val_recall'][-1]
-    
-    # get precision metrics
-    
-    # Get a batch of test images and their true labels
-    test_images, true_labels = next(test_generator)
-
-    # Make predictions for the test images
-    predictions = model.predict(test_images)
-
-    # Get the class with the highest probability for each prediction
-    predicted_labels = np.argmax(predictions, axis=1)
-
-    # Convert true_labels from one-hot encoded to class indices
-    true_labels = np.argmax(true_labels, axis=1)
-
-    # Calculate the absolute differences between the predicted and true labels
-    absolute_diffs = np.abs(predicted_labels - true_labels)
-
-    # Calculate the mean and median absolute differences
-    mean_diff = np.mean(absolute_diffs)
-    median_diff = np.median(absolute_diffs)
-    
-    print("Model Summary: [ lr = {} ,droprate = {} ]".format(learning_rate_dense_layers, droprate))
-    print("Train Accuracy:  {}".format(final_train_accuracy))
-    print("Train Precision: {}".format(final_train_precision))
-    print("Train Recall:    {}".format(final_train_recall))
-    print("Test Accuracy (Xval):  {}".format(final_test_xval_accuracy))
-    print("Test Precision (Xval): {}".format(final_test_xval_precision))
-    print("Test Recall (Xval):    {}".format(final_test_xval_recall))
-    print("Grade Differential (mean):   {}".format(mean_diff))
-    print("Grade Differential (median): {}\n".format(median_diff))
+print("Model Summary: [ lr = {} ,droprate = {} ]".format(learning_rate_dense_layers, droprate))
+print("Train Accuracy:  {}".format(final_train_accuracy))
+print("Train Precision: {}".format(final_train_precision))
+print("Train Recall:    {}".format(final_train_recall))
+print("Test Accuracy (Xval):  {}".format(final_test_xval_accuracy))
+print("Test Precision (Xval): {}".format(final_test_xval_precision))
+print("Test Recall (Xval):    {}".format(final_test_xval_recall))
+print("Grade Differential (mean):   {}".format(mean_diff))
+print("Grade Differential (median): {}\n".format(median_diff))
