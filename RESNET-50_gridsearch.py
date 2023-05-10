@@ -23,7 +23,7 @@ base_path = "/home/data/data_for_model_1"
 # base_path = "/Users/brianmiller/Desktop/trading_card_data/test_run_data"
 n_epochs = 10
 learning_rate_dense_layers = 0.0001
-droprate = 0.025
+droprate = 0.012
 #####################
 
 # define the paths for the files
