@@ -2,9 +2,10 @@ import os
 from PIL import Image
 
 # make a list of folders to go through and crop the images
-parent_dir = "/Users/brianmiller/Desktop/trading_card_data/verified_data"
-output_dir = "/Users/brianmiller/Desktop/trading_card_data/verified_data/cropped_data"
+parent_dir = "/Users/brianmiller/Desktop/trading_card_data/verified_data/data_2"
+output_dir = "/Users/brianmiller/Desktop/trading_card_data/verified_data/cropped_data2/"
 folder_names = ["psa1", "psa2", "psa3", "psa4", "psa5", "psa6", "psa7", "psa8", "psa9", "psa10"]
+
 
 list_of_folders = [parent_dir + '/' + i for i in folder_names]
 
