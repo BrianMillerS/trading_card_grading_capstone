@@ -5,9 +5,16 @@
 - Sean Wendlandt (sean.wendlandt@du.edu)
 
 ### Project Overview:
-The condition of a trading card significantly influences its worth. However, the current methods to assess a card's condition are insufficient. Non-professionals often lack the accuracy required for card grading, and obtaining professional evaluations is too expensive and time-consuming for most transactions.
+The condition of a trading card significantly influences its worth. However, the current methods to assess a card's condition are insufficient. Non-professionals often lack the accuracy required for card grading, and obtaining professional evaluations is too expensive and time-consuming.
 
-Thus this project aims to automate the card grading process using machine learning. 
+This project aims to automate the card grading process using machine learning. 
+
+**Data Preprocessing Steps:**
+- Web scraping to obtain data
+- Manual removal of innacurate data
+- Dataset balancing
+- Automated removal of PSA label
+- Standardize photo dimensions for CNN
 
 ### Description of CNN:
 ![alt text](https://github.com/BrianMillerS/trading_card_grading_capstone/blob/8e34346d587878d93e483760b70d9115e463eb33/photo_diagram.png)
