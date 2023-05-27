@@ -18,10 +18,13 @@ This project aims to automate the card grading process using machine learning.
 
 ### Description of CNN:
 ![alt text](https://github.com/BrianMillerS/trading_card_grading_capstone/blob/8e34346d587878d93e483760b70d9115e463eb33/photo_diagram.png)
-
+ResNet-50 feeds into three fully connected ReLU dense layers [1024, 512, 128]
+The dense layers feed into a single softmax prediction layer
+Two rounds of training was used:
+- First Round: The first 30 layers of ResNet-50 were Frozen
+- Second Round: All layers were unfrozen
 
 ### Data:
-After quality control steps, 
 All cards were downloaded from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
 
 ### Description of Files:  
