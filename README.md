@@ -14,8 +14,8 @@
 ├── make_balanced_dataset.ipynb          # selects balanced dataset after manual QC.  
 ├── make_metadata_file.ipynb             # selects 30k photos from scraped data.  
 ├── data_processing                       
-│   ├── image_cropping.py                # removed PSA label from photo.   
-│   ├── image_augmentation_flip.py       # makes flipped copy of photo for training data.   
+│&#32;&#32;&#32;├── image_cropping.py                # removed PSA label from photo.   
+│&#32;&#32;&#32;├── image_augmentation_flip.py       # makes flipped copy of photo for training data.   
 └── web_scraping                         
-    ├── master_collectors_scrape.sh      # bash script to call scrape_collections.py   
-    └── scrape_collections.py            # main web scraping script.  
+&#32;&#32;&#32;&#32;├── master_collectors_scrape.sh      # bash script to call scrape_collections.py   
+&#32;&#32;&#32;&#32;└── scrape_collections.py            # main web scraping script.  
