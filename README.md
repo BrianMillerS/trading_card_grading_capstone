@@ -21,6 +21,4 @@
 &#32;&#32;&#32;&#32;└── scrape_collections.py            # main web scraping script.  
 
 
-<div>
-This is some text                    with 20 spaces.
-</div>
+This is some text<span style="white-space: pre;">                    </span>with 20 spaces.
