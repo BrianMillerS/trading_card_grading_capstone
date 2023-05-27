@@ -1,12 +1,12 @@
 <h1 align="center">Automated Grading of Baseball Trading Cards using Convolutional Neural Networks</h1>  
 
-**Authors:**  
+### Authors:  
 - Brian Miller (brian.s.miller@du.edu)
 - Sean Wendlandt (sean.wendlandt@du.edu)
 
-### Project Overview
+### Project Overview  
 
-### Data
+### Data  
 All cards were downloaded from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
 
 ### Description of Files  
