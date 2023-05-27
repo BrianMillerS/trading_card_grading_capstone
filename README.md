@@ -6,5 +6,6 @@
 
 ## Project Overview
 
-## Description of Files
+## Description of Files  
 
+![alt text](https://github.com/BrianMillerS/trading_card_grading_capstone/blob/31fcde187ceea1c5c8a3efce8f694628e80596ab/tree_structure.png)
