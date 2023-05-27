@@ -1,5 +1,5 @@
 # Automated Grading of Baseball Trading Cards using Convolutional Neural Networks
-
+<h1 align="center">Material Bread</h1>
 **Authors:**  
 - Brian Miller (brian.s.miller@du.edu)
 - Sean Wendlandt (sean.wendlandt@du.edu)
