@@ -19,8 +19,8 @@ combined with custom classification and output layers.
 
 ### Description of CNN:
 ![alt text](https://github.com/BrianMillerS/trading_card_grading_capstone/blob/8e34346d587878d93e483760b70d9115e463eb33/photo_diagram.png)
-ResNet-50 feeds into three fully connected ReLU dense layers [1024, 512, 128]  
-The dense layers feed into a single softmax prediction layer  
+- ResNet-50 feeds into three fully connected ReLU dense layers [1024, 512, 128]  
+- The dense layers feed into a single softmax prediction layer  
 
 Two rounds of training were done:
 - First Round: 50 epochs, freeze first 30 layers of ResNet-50
