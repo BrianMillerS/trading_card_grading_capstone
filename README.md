@@ -7,7 +7,7 @@
 ### Project Overview
 
 ### Data
-All cards were downloaded from [Collectors.com]([https://www.openai.com/](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
+All cards were downloaded from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
 
 ### Description of Files  
 
