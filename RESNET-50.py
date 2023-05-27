@@ -14,7 +14,7 @@ from tensorflow.keras import mixed_precision
 
 
 #### USAGE ####
-# python RESNET-50.py --n_epochs 109 --droprate 0.025 --base_path /home/data/data_for_model_2
+# python RESNET-50.py --n_epochs 50 --droprate 0.025 --base_path /home/data/data_for_model_3
 
 
 def parse_arguments():
