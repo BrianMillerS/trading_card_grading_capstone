@@ -37,7 +37,7 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 <img src="readme_photos/bad_examples.png" width="133%" height="133%">
 <img src="readme_photos/dataset_balancing.png" width="133%" height="133%">
 <img src="readme_photos/eda_card_age.png" width="703" height="550">
-<img src="readme_photos/eda_card_price_age.png" width="133%" height="133%">
+<img src="readme_photos/eda_card_price_age.png" width="712" height="457">
 <img src="readme_photos/eda_data_sources.png" width="704" height="508">
 <img src="readme_photos/eda_new_cards_better_grade.png" width="810" height="518">
 <img src="readme_photos/good_examples.png" width="133%" height="133%">
