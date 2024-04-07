@@ -1,4 +1,4 @@
-![alt text](readme_photos/CNN_image_white.jpg)
+![alt text](readme_photos/CNN_white.jpg)
 
 <h1 align="center">Automated Grading of Baseball Trading Cards using Convolutional Neural Networks</h1>  
 
