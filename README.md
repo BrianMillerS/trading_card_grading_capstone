@@ -30,6 +30,7 @@ Two rounds of training were done:
 All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
 
 ### Description of Files:  
+<img src="readme_photos/CNN_diagram_complex.png" width="133%" height="133%">
 
 ![alt text](readme_photos/CNN_diagram.png)
 ![CNN Diagram Complex](readme_photos/CNN_diagram_complex.png)
