@@ -32,3 +32,17 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 ### Description of Files:  
 
 ![alt text](readme_photos/CNN_diagram.png)
+![CNN Diagram Complex](readme_photos/CNN_diagram_complex.png)
+![TREE](readme_photos/TREE.png)
+![Bad Examples](readme_photos/bad_examples.png)
+![Dataset Balancing](readme_photos/dataset_balancing.png)
+![EDA Card Age](readme_photos/eda_card_age.png)
+![EDA Card Price Age](readme_photos/eda_card_price_age.png)
+![EDA Data Sources](readme_photos/eda_data_sources.png)
+![EDA New Cards Better Grade](readme_photos/eda_new_cards_better_grade.png)
+![Good Examples](readme_photos/good_examples.png)
+![Image Augmentation](readme_photos/image_augmentation.png)
+![Image Cropping](readme_photos/image_cropping.png)
+![Pixel Distribution](readme_photos/pixel_distribution.png)
+![Website Example](readme_photos/website_example.png)
+
