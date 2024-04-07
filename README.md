@@ -1,7 +1,5 @@
-![alt text](readme_photos/CNN_white.png)
-<br>
 <img src="readme_photos/CNN_white.png" width="75%" height="75%">
-<br>
+
 <h1 align="center">Automated Grading of Baseball Trading Cards using Convolutional Neural Networks</h1>  
 
 # Table of contents
