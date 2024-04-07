@@ -42,8 +42,8 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 <img src="readme_photos/eda_new_cards_better_grade.png" width="810" height="518">
 <img src="readme_photos/good_examples.png" width="133%" height="133%">
 <img src="readme_photos/image_augmentation.png" width="133%" height="133%">
-<img src="readme_photos/image_cropping.png" width="133%" height="133%">
+<img src="readme_photos/image_cropping.png" width="702" height="453">
 <img src="readme_photos/pixel_distribution.png" width="133%" height="133%">
-<img src="readme_photos/website_example.png" width="293" height="429">
+<img src="readme_photos/website_example.png" width="380" height="558">
 
 
