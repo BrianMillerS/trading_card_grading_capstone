@@ -1,4 +1,16 @@
+![alt text](readme_photos/CNN_diagram.png)
 <h1 align="center">Automated Grading of Baseball Trading Cards using Convolutional Neural Networks</h1>  
+
+# Table of contents
+- [Project Takeaway](#Project-Takeaway)
+- [Description of the Data](#Description-of-the-Data)
+- [Methods Overview](#methods-overview)
+- [Project Summary](#project-summary)
+
+# Project Takeaway
+# Description of the Data
+# Methods Overview
+# Project Summary
 
 ### Authors:  
 - Brian Miller (brian.s.miller@du.edu)
@@ -32,7 +44,7 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 ### Description of Files:  
 <img src="readme_photos/CNN_diagram_complex.png" width="133%" height="133%">
 
-![alt text](readme_photos/CNN_diagram.png)
+
 ![TREE](readme_photos/TREE.png)
 <img src="readme_photos/bad_examples.png" width="133%" height="133%">
 <img src="readme_photos/dataset_balancing.png" width="133%" height="133%">
