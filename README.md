@@ -44,6 +44,6 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 <img src="readme_photos/image_augmentation.png" width="133%" height="133%">
 <img src="readme_photos/image_cropping.png" width="133%" height="133%">
 <img src="readme_photos/pixel_distribution.png" width="133%" height="133%">
-![Website Example](readme_photos/website_example.png)
+<img src="readme_photos/website_example.png" width="100%" height="100%">
 
 
