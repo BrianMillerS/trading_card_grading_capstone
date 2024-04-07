@@ -1,4 +1,5 @@
-![alt text](readme_photos/CNN_diagram.png)
+![alt text](readme_photos/CNN_image_white.jpg)
+
 <h1 align="center">Automated Grading of Baseball Trading Cards using Convolutional Neural Networks</h1>  
 
 # Table of contents
@@ -43,7 +44,7 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 
 ### Description of Files:  
 <img src="readme_photos/CNN_diagram_complex.png" width="133%" height="133%">
-
+![alt text](readme_photos/CNN_diagram.png)
 
 ![TREE](readme_photos/TREE.png)
 <img src="readme_photos/bad_examples.png" width="133%" height="133%">
