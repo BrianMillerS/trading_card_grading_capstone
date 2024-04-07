@@ -1,6 +1,6 @@
-<div style="display: flex; justify-content: center;">
+<p align="center">
     <img src="readme_photos/CNN_white.png" width="75%" height="75%">
-</div>
+</p>
 
 <h1 align="center">Automated Grading of Baseball Trading Cards using Convolutional Neural Networks</h1>  
 
