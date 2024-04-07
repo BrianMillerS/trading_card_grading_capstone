@@ -18,7 +18,7 @@ combined with custom classification and output layers.
 - Standardize photo dimensions for CNN
 
 ### Description of CNN:
-![alt text](https://github.com/BrianMillerS/trading_card_grading_capstone/blob/8e34346d587878d93e483760b70d9115e463eb33/photo_diagram.png)
+
 - ResNet-50 feeds into three fully connected ReLU dense layers [1024, 512, 128]  
 - The dense layers feed into a single softmax prediction layer  
 
@@ -30,4 +30,5 @@ Two rounds of training were done:
 All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
 
 ### Description of Files:  
-![alt text](https://github.com/BrianMillerS/trading_card_grading_capstone/blob/31fcde187ceea1c5c8a3efce8f694628e80596ab/tree_structure.png)
+
+![alt text](readme_photos/CNN_diagram.png)
