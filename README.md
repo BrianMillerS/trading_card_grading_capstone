@@ -14,7 +14,6 @@
 # Project Takeaway
 For my masters capstone I built a machine learning model to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading) and [Beckett](https://www.beckett.com/grading). 
 
-
 **Disclaimer** <br>
 Given these results, myself and a handful of tech professionals founded Card Grade AI, LLC. Our app that we allow users to get instanteneous card grades from just the camera on their phone, is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
 
@@ -58,7 +57,6 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 
 ## Neural Network Model Building
 
-
 - ResNet-50 feeds into three fully connected ReLU dense layers [1024, 512, 128]  
 - The dense layers feed into a single softmax prediction layer  
 
@@ -77,17 +75,8 @@ The condition of a trading card significantly influences its worth. However, the
 This project aims to automate the card grading process using machine learning. Our neural network utilizes the pretained model ResNet-50 
 combined with custom classification and output layers. 
 
-**Data Preprocessing Steps:**
-- Web scraping to obtain data
-- Manual removal of innacurate data
-- Dataset balancing
-- Automated removal of PSA label
-- Standardize photo dimensions for CNN
-
-
 
 # Descriptions of Files in Repo
-
 ![TREE](readme_photos/TREE.png)
 
 
