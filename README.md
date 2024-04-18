@@ -14,7 +14,7 @@
 For my masters capstone I built a machine learning model to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading) and [Beckett](https://www.beckett.com/grading). 
 
 
-****Disclaimer**** <br>
+***Disclaimer*** <br>
 Given these results, myself and a handful of tech professionals founded Card Grade AI, LLC. Our app that we allow users to get instanteneous card grades from just the camera on their phone, is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
 
 # Description of the Data
