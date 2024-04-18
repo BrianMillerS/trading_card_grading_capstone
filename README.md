@@ -68,7 +68,7 @@ Two rounds of training were done:
 
 ![alt text](readme_photos/CNN_diagram.png)
 
-## Model Evalutaion
+## Model Evaluation
 
 The condition of a trading card significantly influences its worth. However, the current methods to assess a card's condition are insufficient. Non-professionals often lack the accuracy required for card grading, and obtaining professional evaluations is too expensive and time-consuming.
 
