@@ -12,13 +12,13 @@
 - [Descriptions of Files in Repo](#Descriptions-of-Files-in-Repo)
 
 # Project Takeaway
-For my masters capstone I built a machine learning model to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading) and [Beckett](https://www.beckett.com/grading). 
+For my masters capstone I built a neural network model to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading) and [Beckett](https://www.beckett.com/grading). 
 
- - The custom neural network model performed well, assigning new cards a grade score with 76% accuracy, with a variance of +/- 1.2 grades.
- - The model was trained on 10k labeled images with professional scores from PSA, which underwent rigorous cleaning, image cropping, and image augmentation.
- - The neural network was built on top of RESNET-50, and underwent two rounds of training with frozen layers to ensure 
+ - The model performed well, assigning new cards a grade score with 76% accuracy, with a variance of +/- 1.2 grades.
+ - The model was trained on 10k labeled images with professional scores from PSA, which underwent rigorous cleaning: image selection,  image cropping, and image augmentation.
+ - Neural network design was essential. Built on top of RESNET-50, many considerations were taken when building the model: number of dense layers, pooling method, activation functions, freezing layers while training, batch size, learning rate, dropout rate.
 
-Using this model, I founded *Card Grade AI, LLC*. Our app that we allow users to get instanteneous card grades from just the camera on their phone, is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
+Using this model, I founded *Card Grade AI, LLC*. Our app allows users to get instanteneous card grades from just a snap of their phone camera, it is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
 
 ![alt text](readme_photos/CNN_diagram.png)
 
