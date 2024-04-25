@@ -14,14 +14,17 @@
 # Project Takeaway
 For my masters capstone I built a machine learning model to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading) and [Beckett](https://www.beckett.com/grading). 
 
-The Convolutional Neural Network (CNN) built classified cards 
+ - The custom neural network model performed well, assigning new cards a grade score with 76% accuracy, with a variance of +/- 1.2 grades.
+ - The model was trained on 10k labeled images with professional scores from PSA, which underwent rigorous cleaning, image cropping, and image augmentation.
+ - The neural network was built on top of RESNET-50, and underwent two rounds of training with frozen layers to ensure 
 
-**Disclaimer** <br>
-Given these results, myself and a handful of tech professionals founded Card Grade AI, LLC. Our app that we allow users to get instanteneous card grades from just the camera on their phone, is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
+Using this model, I founded *Card Grade AI, LLC*. Our app that we allow users to get instanteneous card grades from just the camera on their phone, is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
+
+![alt text](readme_photos/CNN_diagram.png)
 
 # Description of the Data
 
-All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1)
+All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
 
 # Methods Overview
 
@@ -63,12 +66,12 @@ All 10k cards were downloaded from [Collectors.com](https://www.collectors.com/t
 - The dense layers feed into a single softmax prediction layer  
 
 Two rounds of training were done:
-- First Round: 50 epochs, freeze first 30 layers of ResNet-50
-- Second Round: 50 epochs, unfreeze all layers
+- First Round: 15 epochs, freeze first 20 layers of ResNet-50
+- Second Round: 15 epochs, unfreeze all layers
   
 <img src="readme_photos/CNN_diagram_complex.png" width="133%" height="133%">
 
-![alt text](readme_photos/CNN_diagram.png)
+
 
 ## Model Evaluation
 
