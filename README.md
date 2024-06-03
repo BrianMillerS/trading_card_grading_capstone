@@ -12,7 +12,7 @@
 - [Descriptions of Files in Repo](#Descriptions-of-Files-in-Repo)
 
 # Project Takeaway
-For my masters capstone I built a neural network model to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading). Card holders would now no longer need to ship their valuable cards off and pay top prices for a manual professional grade. This model would allow users to get instanteneous card grades from just a snap of their phone camera.
+For my masters capstone I built a neural network to automate the manual card grading process done by companies such as [PSA](https://www.psacard.com/services/tradingcardgrading). Card holders now no longer need to ship their valuable cards off and pay top prices for a manual professional grade. This model allows users to get instanteneous card grades from just a snap of their phone camera.
 
  - The model performed well, assigning new cards a grade score with 76% accuracy, with a variance of +/- 1.2 grades.
  - The model was trained on 10k labeled images with professional scores from PSA, which underwent rigorous cleaning: image selection, image cropping, and image augmentation.
