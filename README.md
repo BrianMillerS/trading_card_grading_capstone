@@ -6,7 +6,7 @@
 
 # Table of contents
 - [Project Takeaway](#Project-Takeaway)
-- [Exploratory Data Analysis](#xploratory-Data-Analysis)
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 - [Data Collection](#Data-Collection)
 - [Data Cleaning](#Data-Cleaning)
 - [Data Standardization and Augmentation](#Data-Standardization-and-Augmentation)
@@ -29,8 +29,8 @@ Using this model, I founded **Card Grade AI, LLC** Our app allows users to get i
 All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
 
 
+# Exploratory Data Analysis
 
-# Exploratory Data Analysis  
 
 <img src="readme_photos/eda_new_cards_better_grade.png" width="810" height="518">
 <img src="readme_photos/eda_card_age.png" width="703" height="550">
