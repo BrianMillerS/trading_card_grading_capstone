@@ -26,36 +26,34 @@ For my masters capstone I built a neural network to automate the manual card gra
 
 Using this model, I founded **Card Grade AI, LLC** Our app allows users to get instant card grades, and host a virtual portfolio of their collection. It is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
 
-# Description of the Data
-
 All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
 
 
 
-## Exploratory Data Analysis
+# Exploratory Data Analysis  
 
 <img src="readme_photos/eda_new_cards_better_grade.png" width="810" height="518">
 <img src="readme_photos/eda_card_age.png" width="703" height="550">
 <img src="readme_photos/eda_card_price_age.png" width="712" height="457">
 
-## Data Collection
+# Data Collection
 
 <img src="readme_photos/eda_data_sources.png" width="704" height="508">
 <img src="readme_photos/website_example.png" width="380" height="558">
 
-## Data Cleaning
+# Data Cleaning
 
 <img src="readme_photos/good_examples.png" width="133%" height="133%">
 <img src="readme_photos/bad_examples.png" width="133%" height="133%">
 
-## Data Standardization and Augmentation
+# Data Standardization and Augmentation
 
 <img src="readme_photos/image_cropping.png" width="702" height="453">
 <img src="readme_photos/dataset_balancing.png" width="133%" height="133%">
 <img src="readme_photos/pixel_distribution.png" width="133%" height="133%">
 <img src="readme_photos/image_augmentation.png" width="133%" height="133%">
 
-## Neural Network Model Building
+# Neural Network Model Building
 
 - ResNet-50 feeds into three fully connected ReLU dense layers [1024, 512, 128]  
 - The dense layers feed into a single softmax prediction layer  
@@ -68,7 +66,7 @@ Two rounds of training were done:
 
 
 
-## Model Evaluation
+# Model Evaluation
 
 The condition of a trading card significantly influences its worth. However, the current methods to assess a card's condition are insufficient. Non-professionals often lack the accuracy required for card grading, and obtaining professional evaluations is too expensive and time-consuming.
 
