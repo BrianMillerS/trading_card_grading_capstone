@@ -6,9 +6,12 @@
 
 # Table of contents
 - [Project Takeaway](#Project-Takeaway)
-- [Description of the Data](#Description-of-the-Data)
-- [Methods Overview](#methods-overview)
-- [Project Summary](#project-summary)
+- [Exploratory Data Analysis](#xploratory-Data-Analysis)
+- [Data Collection](#Data-Collection)
+- [Data Cleaning](#Data-Cleaning)
+- [Data Standardization and Augmentation](#Data-Standardization-and-Augmentation)
+- [Neural Network Model Building](#Neural-Network-Model-Building)
+- [Model Evaluation](#Model-Evaluation)
 - [Descriptions of Files in Repo](#Descriptions-of-Files-in-Repo)
 
 # Project Takeaway
@@ -16,26 +19,18 @@ For my masters capstone I built a neural network to automate the manual card gra
 
  - The model performed well, assigning new cards a grade score with 76% accuracy, with a variance of +/- 1.2 grades.
  - The model was trained on 10k labeled images with professional scores from PSA, which underwent rigorous cleaning: image selection, image cropping, and image augmentation.
- - Neural network design was essential. Built on top of RESNET-50, many decisions were made: number of dense layers, pooling method, activation functions, freezing layers while training, batch size, learning rate, dropout rate.
+ - I built my model on top of the pre-trained RESNET-50 model, the gold standard convolutional neural network for image classification.
+ - Key parameters optimized performance including: number of dense layers, pooling method, activation functions, frozen layers, batch size, learning rate, and dropout rate.
 
 ![alt text](readme_photos/CNN_diagram.png)
 
-Using this model, I founded **Card Grade AI, LLC** Our app allows users to get instant card grades, and host a virtual portfolio of thier collection. Tt is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
+Using this model, I founded **Card Grade AI, LLC** Our app allows users to get instant card grades, and host a virtual portfolio of their collection. It is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
 
 # Description of the Data
 
 All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
 
-# Methods Overview
 
-
-# Project Summary
-- [Exploratory Data Analysis](#xploratory-Data-Analysis)
-- [Data Collection](#Data-Collection)
-- [Data Cleaning](#Data-Cleaning)
-- [Data Standardization and Augmentation](#Data-Standardization-and-Augmentation)
-- [Neural Network Model Building](#Neural-Network-Model-Building)
-- [Model Evaluation](#Model-Evaluation)
 
 ## Exploratory Data Analysis
 
