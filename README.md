@@ -29,7 +29,7 @@ All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trad
 
 # Data Collection
 
-<img src="readme_photos/eda_data_sources.png" width="704" height="508">
+<img src="readme_photos/eda_data_sources.png" width="422" height="304">
 <img src="readme_photos/website_example.png" width="380" height="558">
 
 # Data Cleaning
