@@ -47,9 +47,11 @@ All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trad
 
 # Data Standardization and Augmentation
 As part of standarization, the quality scores were cropped out of the image:  
-<img src="readme_photos/image_cropping.png" width="702" height="453">
+<img src="readme_photos/image_cropping.png" width="702" height="453">  
+
 Providing the CNN model with both original and flipped images yielded the best results:  
-<img src="readme_photos/image_augmentation.png" width="133%" height="133%">
+<img src="readme_photos/image_augmentation.png" width="133%" height="133%">  
+
 Finally, balancing the data across outcome categories was performed, removing training bias.  
 <img src="readme_photos/dataset_balancing.png" width="133%" height="133%">
 
