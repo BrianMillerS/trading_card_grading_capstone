@@ -6,11 +6,11 @@
 
 # Table of contents
 - [Project Takeaway](#Project-Takeaway)
-- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 - [Data Collection](#Data-Collection)
 - [Data Cleaning](#Data-Cleaning)
 - [Data Standardization and Augmentation](#Data-Standardization-and-Augmentation)
 - [Neural Network Model Building](#Neural-Network-Model-Building)
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 - [Descriptions of Files in Repo](#Descriptions-of-Files-in-Repo)
 
 # Project Takeaway
@@ -26,14 +26,6 @@ For my masters capstone I built a neural network to automate the manual card gra
 Using this model, I founded **Card Grade AI, LLC** Our app allows users to get instant card grades, and host a virtual portfolio of their collection. It is currently in progress. For this reason the training data and final ML model are not on this repo, and are considered proprietary.
 
 All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
-
-
-# Exploratory Data Analysis
-
-
-<img src="readme_photos/eda_new_cards_better_grade.png" width="810" height="518">
-<img src="readme_photos/eda_card_age.png" width="703" height="550">
-<img src="readme_photos/eda_card_price_age.png" width="712" height="457">
 
 # Data Collection
 
@@ -69,6 +61,11 @@ Two rounds of training were done:
 - Second Round: 15 epochs, unfreeze all layers
   
 <img src="readme_photos/CNN_diagram_complex.png" width="133%" height="133%">
+
+# Exploratory Data Analysis
+<img src="readme_photos/eda_new_cards_better_grade.png" width="810" height="518">
+<img src="readme_photos/eda_card_age.png" width="703" height="550">
+<img src="readme_photos/eda_card_price_age.png" width="712" height="457">
 
 # Descriptions of Files in Repo
 ![TREE](readme_photos/TREE.png)
