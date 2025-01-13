@@ -28,7 +28,7 @@ Using this model, I founded **Card Grade AI, LLC** Our app allows users to get i
 All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
 
 # Data Collection
-Example of professsionally graded card for sale on Ebay:  
+Example of professsionally graded card for sale on Amazon:  
 <img src="readme_photos/website_example.png" width="380" height="558">  
 
 Summary of where data was scraped from:
@@ -36,7 +36,7 @@ Summary of where data was scraped from:
 
 
 # Data Cleaning
-Manual image selection was done for all 10 images. This took a few tedious hours, but was definetely worth the effort.   
+Manual image selection was done for all 20k images, yeilding 10k that were used during training. This took a few tedious hours, but was definetely worth the effort.   
 
 Examples of images before manual selection:
 <img src="readme_photos/bad_examples.png" width="133%" height="133%">  
