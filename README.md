@@ -41,9 +41,13 @@ All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trad
 <img src="readme_photos/website_example.png" width="380" height="558">
 
 # Data Cleaning
+Manual image selection was done for all 10 images. This took a few tedious hours, but was definetely worth the effort.   
 
-<img src="readme_photos/good_examples.png" width="133%" height="133%">
-<img src="readme_photos/bad_examples.png" width="133%" height="133%">
+Examples of images before manual selection:
+<img src="readme_photos/bad_examples.png" width="133%" height="133%">  
+
+Examples of images after manual selection:
+<img src="readme_photos/good_examples.png" width="133%" height="133%">  
 
 # Data Standardization and Augmentation
 As part of standarization, the quality scores were cropped out of the image:  
