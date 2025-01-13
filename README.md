@@ -28,7 +28,7 @@ Using this model, I founded **Card Grade AI, LLC** Our app allows users to get i
 All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trading-cards/sport-baseball-cards/20003?lowgrade=1&highgrade=10&gradingservice=2&page=1) using beautiful soup
 
 # Data Collection
-Example of professsionally graded card for sale on Ebay:
+Example of professsionally graded card for sale on Ebay:  
 <img src="readme_photos/website_example.png" width="380" height="558">  
 
 Summary of where data was scraped from:
