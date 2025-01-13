@@ -11,7 +11,6 @@
 - [Data Cleaning](#Data-Cleaning)
 - [Data Standardization and Augmentation](#Data-Standardization-and-Augmentation)
 - [Neural Network Model Building](#Neural-Network-Model-Building)
-- [Model Evaluation](#Model-Evaluation)
 - [Descriptions of Files in Repo](#Descriptions-of-Files-in-Repo)
 
 # Project Takeaway
@@ -47,11 +46,12 @@ All 10k cards were scraped from [Collectors.com](https://www.collectors.com/trad
 <img src="readme_photos/bad_examples.png" width="133%" height="133%">
 
 # Data Standardization and Augmentation
-
+As part of standarization, the quality scores were cropped out of the image:
 <img src="readme_photos/image_cropping.png" width="702" height="453">
-<img src="readme_photos/dataset_balancing.png" width="133%" height="133%">
-<img src="readme_photos/pixel_distribution.png" width="133%" height="133%">
+Providing the CNN model with both original and flipped images yielded the best results:
 <img src="readme_photos/image_augmentation.png" width="133%" height="133%">
+Finally, balancing the data across outcome categories was performed, removing training bias.
+<img src="readme_photos/dataset_balancing.png" width="133%" height="133%">
 
 # Neural Network Model Building
 
@@ -63,16 +63,6 @@ Two rounds of training were done:
 - Second Round: 15 epochs, unfreeze all layers
   
 <img src="readme_photos/CNN_diagram_complex.png" width="133%" height="133%">
-
-
-
-# Model Evaluation
-
-The condition of a trading card significantly influences its worth. However, the current methods to assess a card's condition are insufficient. Non-professionals often lack the accuracy required for card grading, and obtaining professional evaluations is too expensive and time-consuming.
-
-This project aims to automate the card grading process using machine learning. Our neural network utilizes the pretained model ResNet-50 
-combined with custom classification and output layers. 
-
 
 # Descriptions of Files in Repo
 ![TREE](readme_photos/TREE.png)
